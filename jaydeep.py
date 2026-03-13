@@ -1,0 +1,41 @@
+
+from tkinter import *
+from PIL import ImageTk, Image
+from tkinter import messagebox
+def handle_login():
+    email = email_input.get()
+    password = password_input.get()
+    if email == 'jaydeep@gmail.com' and password == '1811':
+        messagebox.showinfo("Success", "Lets Go!!")
+    else:
+        messagebox.showerror("Error", "Try Again!!")
+root = Tk()
+root.title('Login Page')
+root.iconbitmap('logo.ico')
+root.geometry("500x500")
+bg_image = Image.open("C:\\Users\\Jaydeep\\OneDrive\\Desktop\\Python notes\\Projects\\Python-gui-tkinter\\bk1.jpeg")
+bg_image = ImageTk.PhotoImage(bg_image)
+bg_label = Label(root, image=bg_image)
+bg_label.place(x=1, y=1, relwidth=1, relheight=1)
+img = Image.open("t3.jpeg")
+resized_img = img.resize((250, 150))
+img = ImageTk.PhotoImage(resized_img)
+img_label = Label(root, image=img,bg='#F0F8FF')
+img_label.pack(pady=50)
+text_label = Label(root, text='Ready To Travel!!!', fg='black')
+text_label.pack()
+text_label.config(font=('Showcard Gothic', 30, 'bold'))
+email_label = Label(root, text='Enter  Email')
+email_label.pack(pady=(60, 30))
+email_label.config(font=('Showcard Gothic', 15))
+email_input = Entry(root, width=40)
+email_input.pack(ipady=5, pady=(1, 15))
+password_label = Label(root, text='Enter  Password')
+password_label.pack(pady=(15, 10))
+password_label.config(font=('Showcard Gothic', 15))
+password_input = Entry(root, width=40, show="*")
+password_input.pack(ipady=5, pady=(1, 15))
+login_btn = Button(root, text='Start Your Journey...', bg='white', fg='black', width=25, height=2, command=handle_login)
+login_btn.pack(pady=30)
+login_btn.config(font=('Showcard Gothic', 15, 'bold'))
+root.mainloop()
